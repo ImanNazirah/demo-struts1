@@ -1,0 +1,37 @@
+# Maven target directory
+/target/
+
+# Maven wrapper files (already in the project, no need to ignore)
+/.mvn/
+/mvnw
+/mvnw.cmd
+
+# Eclipse files
+.classpath
+.project
+.settings/
+
+# NetBeans files
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# Intellij IDEA files
+/.idea/
+/*.iml
+/out/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+.Trash-*
