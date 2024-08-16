@@ -14,6 +14,9 @@
         <action path="/test" type="com.demo.struts1.action.TestAction" name="testForm">
             <forward name="success" path="/WEB-INF/view/test.jsp" />
         </action>
+        <action path="/spotifyList" type="com.demo.struts1.action.SpotifyListAction" name="testForm">
+            <forward name="success" path="/WEB-INF/view/spotifyList.jsp" />
+        </action>
     </action-mappings>
 
 </struts-config>
