@@ -14,8 +14,11 @@
         <action path="/test" type="com.demo.struts1.action.TestAction" name="testForm">
             <forward name="success" path="/WEB-INF/view/test.jsp" />
         </action>
-        <action path="/spotifyList" type="com.demo.struts1.action.SpotifyListAction" name="testForm">
+        <action path="/spotifyList" type="com.demo.struts1.action.SpotifyListAction">
             <forward name="success" path="/WEB-INF/view/spotifyList.jsp" />
+        </action>
+        <action path="/spotifyPagination" type="com.demo.struts1.action.SpotifyListPagination" scope="request" validate="false" input="/WEB-INF/view/spotifyListPagination.jsp">
+            <forward name="success" path="/WEB-INF/view/spotifyListPagination.jsp"/>
         </action>
     </action-mappings>
 

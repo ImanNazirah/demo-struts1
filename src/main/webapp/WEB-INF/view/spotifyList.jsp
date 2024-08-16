@@ -1,10 +1,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
-    <title>Query Results</title>
+    <title>${pageTitle}</title>
 </head>
 <body>
-    <h2>Query Results</h2>
+    <h2>${pageTitle}</h2>
     <table border="1">
         <tr>
             <th>ID</th>
