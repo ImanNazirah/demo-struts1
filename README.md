@@ -40,20 +40,19 @@ Update the hibernate.cfg.xml file in the src/main/resources folder with your MyS
 <property name="hibernate.connection.password">your-password</property>
 ```
 
-4. Build the Project
+3. Build the Project
 
 ```bash
 mvn clean install
 ```
 
-5. Run Application
+4. Run Application
 
 ```bash
 mvn jetty:run
 ```
 
-6. Access the Application
-
+5. Access the Application
 
 Open your browser and go to:
 
