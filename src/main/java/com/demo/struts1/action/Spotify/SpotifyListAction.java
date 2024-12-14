@@ -1,4 +1,4 @@
-package com.demo.struts1.action;
+package com.demo.struts1.action.Spotify;
 
 import com.demo.struts1.dao.SpotifyDao;
 import com.demo.struts1.model.Spotify;
