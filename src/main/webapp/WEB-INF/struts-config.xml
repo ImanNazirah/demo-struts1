@@ -17,7 +17,7 @@
         <action path="/spotifyList" type="com.demo.struts1.action.Spotify.SpotifyListAction">
             <forward name="success" path="/WEB-INF/view/spotifyList.jsp" />
         </action>
-        <action path="/spotifyPagination" type="com.demo.struts1.action.Spotify.SpotifyListPagination" scope="request" validate="false" input="/WEB-INF/view/spotifyListPagination.jsp">
+        <action path="/spotifyPagination" type="com.demo.struts1.action.Spotify.SpotifyListPaginationAction" scope="request" validate="false" input="/WEB-INF/view/spotifyListPagination.jsp">
             <forward name="success" path="/WEB-INF/view/spotifyListPagination.jsp"/>
         </action>
     </action-mappings>

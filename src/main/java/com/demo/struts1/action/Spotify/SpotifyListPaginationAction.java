@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
-public class SpotifyListPagination extends Action {
+public class SpotifyListPaginationAction extends Action {
 
     private static final int PAGE_SIZE = 10;
 
