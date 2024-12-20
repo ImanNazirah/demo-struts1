@@ -15,11 +15,22 @@
             <forward name="success" path="/WEB-INF/view/test.jsp" />
         </action>
         <action path="/spotifyList" type="com.demo.struts1.action.Spotify.SpotifyListAction">
-            <forward name="success" path="/WEB-INF/view/spotifyList.jsp" />
+            <forward name="success" path="tiles.spotify.list" />
         </action>
         <action path="/spotifyPagination" type="com.demo.struts1.action.Spotify.SpotifyListPaginationAction" scope="request" validate="false" input="/WEB-INF/view/spotifyListPagination.jsp">
             <forward name="success" path="/WEB-INF/view/spotifyListPagination.jsp"/>
         </action>
     </action-mappings>
+
+
+    <controller processorClass="org.apache.struts.tiles.TilesRequestProcessor"/>
+
+    <!-- ========================= Tiles plugin ===============================-->
+
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml" />
+        <set-property property="moduleAware" value="true" />
+    </plug-in>
+
 
 </struts-config>
