@@ -6,8 +6,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Testing</title>
-    <!-- Add your stylesheets here -->
-    <link rel="stylesheet" href="/css/styles.css">
     <tiles:insert name="header" />
 
 </head>
@@ -121,9 +119,10 @@
     <!-- Footer -->
     <tiles:insert name="footer" />
 
-        <!-- Bootstrap JS and Dependencies -->
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-        <script src="<%= request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath() %>/js/sb-admin.js"></script>
+          <!-- SB Admin JavaScript (CDN) -->
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+            <script src="https://startbootstrap.github.io/startbootstrap-sb-admin/js/scripts.js"></script>
+
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 </html>
