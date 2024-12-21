@@ -7,11 +7,20 @@
         <put name="header" value="/WEB-INF/view/common/header.jsp"/>
         <put name="footer" value="/WEB-INF/view/common/footer.jsp"/>
         <put name="navBar" value="/WEB-INF/view/common/navBar.jsp"/>
+        <put name="sideNav" value="/WEB-INF/view/common/sideNav.jsp"/>
         <put name="body" value="/WEB-INF/view/common/defaultBody.jsp"/>
+    </definition>
+
+    <definition name="tiles.spotify.test" extends="tiles.common.layout">
+        <put name="body" value="/WEB-INF/view/test.jsp"/>
     </definition>
 
     <definition name="tiles.spotify.list" extends="tiles.common.layout">
         <put name="body" value="/WEB-INF/view/spotifyList.jsp"/>
+    </definition>
+
+    <definition name="tiles.spotify.list.pagination" extends="tiles.common.layout">
+        <put name="body" value="/WEB-INF/view/spotifyListPagination.jsp"/>
     </definition>
 
 </tiles-definitions>

@@ -4,21 +4,21 @@
 
 <table border="1">
     <tr>
-            <th>ID</th>
-            <th>trackName</th>
-            <th>artistName</th>
-            <th>genre</th>
-            <th>popularity</th>
+        <th>ID</th>
+        <th>trackName</th>
+        <th>artistName</th>
+        <th>genre</th>
+        <th>popularity</th>
     </tr>
-     <c:forEach var="entity" items="${data}">
-            <tr>
-                <td>${entity.id}</td>
-                <td>${entity.trackName}</td>
-                <td>${entity.artistName}</td>
-                <td>${entity.genre}</td>
-                 <td>${entity.popularity}</td>
-            </tr>
-      </c:forEach>
+    <c:forEach var="entity" items="${data}">
+        <tr>
+            <td>${entity.id}</td>
+            <td>${entity.trackName}</td>
+            <td>${entity.artistName}</td>
+            <td>${entity.genre}</td>
+            <td>${entity.popularity}</td>
+        </tr>
+    </c:forEach>
 </table>
 
 <div>

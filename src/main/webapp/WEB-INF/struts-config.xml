@@ -12,13 +12,13 @@
 
     <action-mappings>
         <action path="/test" type="com.demo.struts1.action.TestAction" name="testForm">
-            <forward name="success" path="/WEB-INF/view/test.jsp" />
+            <forward name="success" path="tiles.spotify.test" />
         </action>
         <action path="/spotifyList" type="com.demo.struts1.action.Spotify.SpotifyListAction">
             <forward name="success" path="tiles.spotify.list" />
         </action>
         <action path="/spotifyPagination" type="com.demo.struts1.action.Spotify.SpotifyListPaginationAction" scope="request" validate="false" input="/WEB-INF/view/spotifyListPagination.jsp">
-            <forward name="success" path="/WEB-INF/view/spotifyListPagination.jsp"/>
+            <forward name="success" path="tiles.spotify.list.pagination"/>
         </action>
     </action-mappings>
 
