@@ -9,6 +9,7 @@
         <put name="navBar" value="/WEB-INF/view/common/navBar.jsp"/>
         <put name="sideNav" value="/WEB-INF/view/common/sideNav.jsp"/>
         <put name="body" value="/WEB-INF/view/common/defaultBody.jsp"/>
+        <put name="script" value="/WEB-INF/view/common/loadScript.jsp"/>
     </definition>
 
     <definition name="tiles.spotify.test" extends="tiles.common.layout">

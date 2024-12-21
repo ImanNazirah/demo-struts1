@@ -13,10 +13,8 @@
 
 <body>
 
-    <!-- Navbar -->
     <tiles:insert name="navBar" />
 
-    <!-- Sidebar content -->
     <div id="layoutSidenav">
 
         <tiles:insert name="sideNav" />
@@ -30,10 +28,7 @@
 
     </div>
 
-    <!-- SB Admin JavaScript (CDN) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://startbootstrap.github.io/startbootstrap-sb-admin/js/scripts.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <tiles:insert name="script" />
     
 </body>
 
