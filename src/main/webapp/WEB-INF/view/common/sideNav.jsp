@@ -18,6 +18,11 @@
                     Spotify List
                 </a>
 
+                <a href="<c:url value='/spotify-pagination.do' />" class="nav-link">
+                    <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                    Spotify List V2
+                </a>
+
             </div>
         </div>
         <div class="sb-sidenav-footer">

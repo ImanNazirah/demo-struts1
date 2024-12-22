@@ -1,6 +1,5 @@
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://startbootstrap.github.io/startbootstrap-sb-admin/js/datatables-simple-demo.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"></script>
 <script>
     window.addEventListener('DOMContentLoaded', event => {
@@ -40,6 +39,26 @@
                     link.classList.add('active');
                 }
         });
+
+        const datatablesSimpleCustom = document.getElementById('datatablesSimpleCustom');
+        if (datatablesSimpleCustom) {
+            new simpleDatatables.DataTable(datatablesSimpleCustom, {
+               perPage: 10,
+               perPageSelect: false,
+               searchable: false,
+               labels: {
+                           placeholder: "",  // Optional: Hide search placeholder text
+                           perPage: "",      // Optional: Hide "entries per page" label
+                           noRows: "No entries found", // Optional: Custom message for no rows
+                           info: ""          // Hide the "Showing x to y of z entries" text
+                       }
+               });
+        }
+
+        const datatablesSimple = document.getElementById('datatablesSimple');
+        if (datatablesSimple) {
+                new simpleDatatables.DataTable(datatablesSimple);
+        }
 
     });
 </script>

@@ -4,35 +4,49 @@
 
 
 <div class="container-fluid px-4">
-    <h1 class="mt-4">Tables</h1>
-    <ol class="breadcrumb mb-4">
-        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-        <li class="breadcrumb-item active">Tables</li>
-    </ol>
+    <h1 class="mt-4 mb-4">Built-in DataTable</h1>
+
+     <div class="card mb-4 mt-4">
+        <div class="card-body">
+            <p align="justify">The data table fetches all rows at once and paginates them client-side. This can be an issue if you have a large dataset because it can lead to performance problems and long load times. This approach is simpler to implement because the pagination logic is already handled by the DataTable plugin, and it is a good choice for smaller datasets.</p>
+        </div>
+     </div>
+
     <div class="card mb-4">
         <div class="card-header">
             <i class="fas fa-table me-1"></i>
-            DataTable Example
+            Spotify List
         </div>
         <div class="card-body">
             <table id="datatablesSimple">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>trackName</th>
-                        <th>artistName</th>
-                        <th>genre</th>
-                        <th>popularity</th>
+                        <th>No.</th>
+                        <th>Track Name</th>
+                        <th>Artist Name</th>
+                        <th>Genre</th>
+                        <th>Popularity</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <c:forEach var="entity" items="${results}">
+                    <c:forEach var="entity" items="${results}" varStatus="i">
                         <tr>
-                            <td>${entity.id}</td>
+                            <td>${i.index+1}</td>
                             <td>${entity.trackName}</td>
                             <td>${entity.artistName}</td>
                             <td>${entity.genre}</td>
                             <td>${entity.popularity}</td>
+                            <td>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <a class="modal-effect btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#myModal">
+                                        <i class="fas fa-pencil-alt"></i>
+                                    </a>
+                                    <a class="modal-effect btn btn-danger" data-effect="effect-scale" data-toggle="modal" href="javascript:void(0)">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                </div>
+                            </td>
                         </tr>
                     </c:forEach>
                 </tbody>
