@@ -1,3 +1,5 @@
+<p align="center" style="background-color: #3157a7; padding: 20px;"><a href="https://nodejs.org/en/" target="_blank"><img src="https://struts.apache.org/img/struts-logo.svg" width="100"></a></p>
+
 # Simple CRUD Application Using Struts 1 and Hibernate
 
 ## Overview
@@ -56,11 +58,9 @@ mvn jetty:run
 
 Open your browser and go to:
 
-| Routes       | Purpose      |
-|--------------|--------------|
-| http://localhost:8080/demo-struts1/test.do | Testing page |
-| http://localhost:8080/demo-struts1/spotifyList.do | View All listing |
-| http://localhost:8080/demo-struts1/spotifyPagination.do?page=1 | View lisitng with pagination |
+http://localhost:8080/demo-struts1/dashboard.do
 
+## References
 
+- https://weblegacy.github.io/struts1/
 

@@ -6,14 +6,14 @@
             <div class="nav">
                 <div class="sb-sidenav-menu-heading">Core</div>
 
-                <a href="<c:url value='/test.do' />" class="nav-link">
+                <a href="<c:url value='/dashboard.do' />" class="nav-link">
                     <div class="sb-nav-link-icon">
                         <i class="fas fa-tachometer-alt"></i>
                     </div>
                     Dashboard
                 </a>
 
-                <a href="<c:url value='/spotifyList.do' />" class="nav-link">
+                <a href="<c:url value='/spotify-list.do' />" class="nav-link">
                     <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                     Spotify List
                 </a>

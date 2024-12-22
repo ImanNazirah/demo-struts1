@@ -11,7 +11,7 @@
 
 </head>
 
-<body>
+<body class="sb-nav-fixed">
 
     <tiles:insert name="navBar" />
 

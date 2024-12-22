@@ -7,17 +7,17 @@
 <struts-config>
 
     <form-beans>
-        <form-bean name="testForm" type="com.demo.struts1.form.TestForm" />
+        <form-bean name="dashboardForm" type="com.demo.struts1.form.DashboardForm" />
     </form-beans>
 
     <action-mappings>
-        <action path="/test" type="com.demo.struts1.action.TestAction" name="testForm">
-            <forward name="success" path="tiles.spotify.test" />
+        <action path="/dashboard" type="com.demo.struts1.action.DashboardAction" name="dashboardForm">
+            <forward name="success" path="tiles.dashboard" />
         </action>
-        <action path="/spotifyList" type="com.demo.struts1.action.Spotify.SpotifyListAction">
+        <action path="/spotify-list" type="com.demo.struts1.action.Spotify.SpotifyListAction">
             <forward name="success" path="tiles.spotify.list" />
         </action>
-        <action path="/spotifyPagination" type="com.demo.struts1.action.Spotify.SpotifyListPaginationAction" scope="request" validate="false" input="/WEB-INF/view/spotifyListPagination.jsp">
+        <action path="/spotify-pagination" type="com.demo.struts1.action.Spotify.SpotifyListPaginationAction" scope="request" validate="false" input="/WEB-INF/view/spotifyListPagination.jsp">
             <forward name="success" path="tiles.spotify.list.pagination"/>
         </action>
     </action-mappings>

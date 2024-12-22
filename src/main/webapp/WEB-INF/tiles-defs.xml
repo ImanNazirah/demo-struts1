@@ -12,8 +12,8 @@
         <put name="script" value="/WEB-INF/view/common/loadScript.jsp"/>
     </definition>
 
-    <definition name="tiles.spotify.test" extends="tiles.common.layout">
-        <put name="body" value="/WEB-INF/view/test.jsp"/>
+    <definition name="tiles.dashboard" extends="tiles.common.layout">
+        <put name="body" value="/WEB-INF/view/dashboard.jsp"/>
     </definition>
 
     <definition name="tiles.spotify.list" extends="tiles.common.layout">
