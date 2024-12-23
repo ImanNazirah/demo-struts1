@@ -14,6 +14,13 @@
             <i class="fas fa-table me-1"></i>
             Spotify List V2
         </div>
+        <div class="mt-4 mb-2">
+             <div>
+                 <a class="modal-effect btn btn-dark mx-2" href="<c:url value='/spotify-init-create.do' />">
+                     <i class="fas fa-plus"></i>
+                 </a>
+             </div>
+        </div>
         <div class="card-body">
            <table id="datatablesSimpleCustom">
              <thead>

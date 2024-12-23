@@ -94,5 +94,42 @@ public class SpotifyDao {
 
     }
 
+    public boolean createSpotify(String trackName, String artistName, String genre, Integer popularity) {
+        Session session = HibernateUtil.getSession();
+        boolean isSuccess = false;
+
+        try {
+
+            session.beginTransaction();
+
+            Spotify data = new Spotify();
+            data.setArtistName(artistName);
+            data.setGenre(genre);
+            data.setPopularity(popularity);
+            data.setTrackName(trackName);
+
+            session.save(data);
+            session.getTransaction().commit();
+
+            isSuccess = true;
+
+
+        } catch (Exception e) {
+            // If there is an error, rollback the transaction
+            if (session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+
+            logger.error("Error creating data", e);
+            e.printStackTrace();
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+
+        return isSuccess;
+    }
+
 }
 

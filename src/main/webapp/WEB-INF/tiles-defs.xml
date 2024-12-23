@@ -24,4 +24,8 @@
         <put name="body" value="/WEB-INF/view/spotifyListPagination.jsp"/>
     </definition>
 
+    <definition name="tiles.spotify.create" extends="tiles.common.layout">
+        <put name="body" value="/WEB-INF/view/spotifyCreate.jsp"/>
+    </definition>
+
 </tiles-definitions>

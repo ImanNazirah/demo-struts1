@@ -5,7 +5,7 @@
 <hibernate-mapping>
     <class name="com.demo.struts1.model.Spotify" table="spotify_song">
         <id name="id" column="id">
-            <!--            <generator class="increment" />-->
+            <generator class="identity"/>
         </id>
         <property name="trackName" column="track_name" not-null="true" />
         <property name="artistName" column="artist_name" not-null="true" />

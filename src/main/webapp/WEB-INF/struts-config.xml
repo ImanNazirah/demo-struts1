@@ -8,6 +8,7 @@
 
     <form-beans>
         <form-bean name="dashboardForm" type="com.demo.struts1.form.DashboardForm" />
+        <form-bean name="spotifyForm" type="com.demo.struts1.form.SpotifyForm"/>
     </form-beans>
 
     <action-mappings>
@@ -17,8 +18,15 @@
         <action path="/spotify-list" type="com.demo.struts1.action.Spotify.SpotifyListAction">
             <forward name="success" path="tiles.spotify.list" />
         </action>
-        <action path="/spotify-pagination" type="com.demo.struts1.action.Spotify.SpotifyListPaginationAction" scope="request" validate="false" input="/WEB-INF/view/spotifyListPagination.jsp">
+        <action path="/spotify-pagination" type="com.demo.struts1.action.Spotify.SpotifyListPaginationAction" scope="request" validate="false">
             <forward name="success" path="tiles.spotify.list.pagination"/>
+        </action>
+        <action path="/spotify-init-create" type="com.demo.struts1.action.EmptyAction">
+            <forward name="success" path="tiles.spotify.create"/>
+        </action>
+        <action path="/spotify-create" type="com.demo.struts1.action.Spotify.SpotifyCreateAction" name="spotifyForm" scope="request" validate="true" input="tiles.spotify.create">
+            <forward name="success" path="/spotify-pagination.do"/>
+            <forward name="failure" path="tiles.spotify.create"/>
         </action>
     </action-mappings>
 
