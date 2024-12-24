@@ -6,7 +6,6 @@ import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Projections;
 import org.hibernate.query.Query;
-
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -94,21 +93,14 @@ public class SpotifyDao {
 
     }
 
-    public boolean createSpotify(String trackName, String artistName, String genre, Integer popularity) {
+    public boolean createSpotify(Spotify spotifyData) {
         Session session = HibernateUtil.getSession();
         boolean isSuccess = false;
 
         try {
 
             session.beginTransaction();
-
-            Spotify data = new Spotify();
-            data.setArtistName(artistName);
-            data.setGenre(genre);
-            data.setPopularity(popularity);
-            data.setTrackName(trackName);
-
-            session.save(data);
+            session.save(spotifyData);
             session.getTransaction().commit();
 
             isSuccess = true;
@@ -130,6 +122,115 @@ public class SpotifyDao {
 
         return isSuccess;
     }
+
+
+    public boolean updateSpotify(Spotify spotify) {
+        Session session = HibernateUtil.getSession();
+        boolean isSuccess = false;
+
+        try {
+            // Start a transaction
+            session.beginTransaction();
+
+            // Retrieve the existing User object by its ID
+            Spotify existingData = session.get(Spotify.class, spotify.getId());
+
+            if (existingData != null) {
+
+                existingData.setTrackName(spotify.getTrackName());
+                existingData.setArtistName(spotify.getArtistName());
+                existingData.setPopularity(spotify.getPopularity());
+                existingData.setGenre(spotify.getGenre());
+
+                session.update(existingData);
+
+                // Commit the transaction
+                session.getTransaction().commit();
+
+                isSuccess = true;
+            } else {
+                logger.error("Spotify with id " + spotify.getId() + " not found.");
+            }
+        } catch (Exception e) {
+            if (session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+            logger.error("Error updating data", e);
+            e.printStackTrace();
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+
+        return isSuccess;
+    }
+
+    public boolean deleteSpotify(Long id) {
+        Session session = HibernateUtil.getSession();
+        boolean isSuccess = false;
+
+        try {
+            // Begin a transaction
+            session.beginTransaction();
+
+            Spotify data = (Spotify) session.createQuery("FROM Spotify WHERE id = :id")
+                    .setParameter("id", id)
+                    .uniqueResult();
+
+            if (data != null) {
+                session.delete(data);
+                session.getTransaction().commit();
+                isSuccess = true;
+            } else {
+                logger.warn("Spotify with id " + id + " not found.");
+            }
+
+        } catch (Exception e) {
+            if (session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+
+            logger.error("Error deleting user", e);
+            e.printStackTrace();
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+
+        return isSuccess;
+    }
+
+    public Spotify getById(Long id){
+        Session session = HibernateUtil.getSession();
+        Spotify data = null;
+        try {
+            // Begin a transaction
+            session.beginTransaction();
+
+//            data = (Spotify) session.createQuery("FROM Spotify WHERE id = :id", Spotify.class)
+//                    .setParameter("id", id)
+//                    .uniqueResult();
+
+            data = session.get(Spotify.class, id);
+
+        } catch (Exception e) {
+            if (session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+
+            logger.error("Error get by Id", e);
+            e.printStackTrace();
+        } finally {
+            if (session != null && session.isOpen()) {
+                session.close();
+            }
+        }
+
+        return data;
+    }
+
 
 }
 

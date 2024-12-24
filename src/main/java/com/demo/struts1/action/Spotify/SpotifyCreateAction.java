@@ -3,6 +3,7 @@ package com.demo.struts1.action.Spotify;
 
 import com.demo.struts1.dao.SpotifyDao;
 import com.demo.struts1.form.SpotifyForm;
+import com.demo.struts1.model.Spotify;
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
@@ -21,9 +22,18 @@ public class SpotifyCreateAction extends Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
                                  HttpServletRequest request, HttpServletResponse response) throws Exception {
 
+        logger.info("Request : {}", request.getPathInfo());
+
         SpotifyForm spotifyForm = (SpotifyForm) form;
         SpotifyDao spotifyDao = new SpotifyDao();
-        boolean isCreated = spotifyDao.createSpotify(spotifyForm.getTrackName(), spotifyForm.getArtistName(), spotifyForm.getGenre(), spotifyForm.getPopularity());
+
+        Spotify data = new Spotify();
+        data.setArtistName(spotifyForm.getArtistName());
+        data.setGenre(spotifyForm.getGenre());
+        data.setPopularity(spotifyForm.getPopularity());
+        data.setTrackName(spotifyForm.getTrackName());
+
+        boolean isCreated = spotifyDao.createSpotify(data);
 
         if (isCreated) {
 

@@ -26,7 +26,6 @@
                         <th>Artist Name</th>
                         <th>Genre</th>
                         <th>Popularity</th>
-                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -37,16 +36,6 @@
                             <td>${entity.artistName}</td>
                             <td>${entity.genre}</td>
                             <td>${entity.popularity}</td>
-                            <td>
-                                <div class="d-flex align-items-center justify-content-center">
-                                    <a class="modal-effect btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#myModal">
-                                        <i class="fas fa-pencil-alt"></i>
-                                    </a>
-                                    <a class="modal-effect btn btn-danger" data-effect="effect-scale" data-toggle="modal" href="javascript:void(0)">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </a>
-                                </div>
-                            </td>
                         </tr>
                     </c:forEach>
                 </tbody>

@@ -16,7 +16,7 @@
         </div>
         <div class="mt-4 mb-2">
              <div>
-                 <a class="modal-effect btn btn-dark mx-2" href="<c:url value='/spotify-init-create.do' />">
+                 <a class="modal-effect btn btn-dark mx-2" href="<c:url value='/spotify-init.do?action=create' />">
                      <i class="fas fa-plus"></i>
                  </a>
              </div>
@@ -43,8 +43,11 @@
                            <td>${entity.popularity}</td>
                               <td>
                                    <div class="d-flex align-items-center justify-content-center">
-                                       <a class="modal-effect btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#myModal">
-                                           <i class="fas fa-pencil-alt"></i>
+                                       <a class="modal-effect btn btn-dark mx-2" href="<c:url value='/spotify-init.do?action=edit&id=${entity.id.toString()}' />">
+                                            <i class="fas fa-pencil-alt"></i>
+                                       </a>
+                                       <a class="modal-effect btn btn-danger" href="<c:url value='/spotify-init.do?action=delete&id=${entity.id.toString()}' />">
+                                            <i class="fas fa-trash-alt"></i>
                                        </a>
                                    </div>
                               </td>
