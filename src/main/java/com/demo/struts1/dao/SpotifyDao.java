@@ -1,12 +1,15 @@
 package com.demo.struts1.dao;
 
+import com.demo.struts1.form.SpotifyForm;
 import com.demo.struts1.model.Spotify;
 import com.demo.struts1.util.HibernateUtil;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Projections;
 import org.hibernate.query.Query;
+
 import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,8 +32,7 @@ public class SpotifyDao {
             data = query.list();
 
         } catch (Exception e) {
-            logger.error("Error",e);
-            e.printStackTrace();
+            logger.error("Error", e);
         } finally {
             if (session != null && session.isOpen()) {
                 session.close();
@@ -52,11 +54,10 @@ public class SpotifyDao {
             query.setMaxResults(maxResults);
 
             data = query.list();
-            logger.info("Checking : {}",data);
+            logger.info("Checking : {}", data);
 
         } catch (Exception e) {
-            logger.error("Error",e);
-            e.printStackTrace();
+            logger.error("Error", e);
         } finally {
             if (session != null && session.isOpen()) {
                 session.close();
@@ -81,8 +82,7 @@ public class SpotifyDao {
             total = (Long) query.uniqueResult();
 
         } catch (Exception e) {
-            logger.error("Error",e);
-            e.printStackTrace();
+            logger.error("Error", e);
         } finally {
             if (session != null && session.isOpen()) {
                 session.close();
@@ -107,13 +107,10 @@ public class SpotifyDao {
 
 
         } catch (Exception e) {
-            // If there is an error, rollback the transaction
             if (session.getTransaction() != null) {
                 session.getTransaction().rollback();
             }
-
             logger.error("Error creating data", e);
-            e.printStackTrace();
         } finally {
             if (session != null && session.isOpen()) {
                 session.close();
@@ -123,8 +120,7 @@ public class SpotifyDao {
         return isSuccess;
     }
 
-
-    public boolean updateSpotify(Spotify spotify) {
+    public boolean updateSpotify(SpotifyForm spotify) {
         Session session = HibernateUtil.getSession();
         boolean isSuccess = false;
 
@@ -132,7 +128,6 @@ public class SpotifyDao {
             // Start a transaction
             session.beginTransaction();
 
-            // Retrieve the existing User object by its ID
             Spotify existingData = session.get(Spotify.class, spotify.getId());
 
             if (existingData != null) {
@@ -143,8 +138,6 @@ public class SpotifyDao {
                 existingData.setGenre(spotify.getGenre());
 
                 session.update(existingData);
-
-                // Commit the transaction
                 session.getTransaction().commit();
 
                 isSuccess = true;
@@ -156,7 +149,6 @@ public class SpotifyDao {
                 session.getTransaction().rollback();
             }
             logger.error("Error updating data", e);
-            e.printStackTrace();
         } finally {
             if (session != null && session.isOpen()) {
                 session.close();
@@ -169,14 +161,12 @@ public class SpotifyDao {
     public boolean deleteSpotify(Long id) {
         Session session = HibernateUtil.getSession();
         boolean isSuccess = false;
+        Spotify data = null;
 
         try {
-            // Begin a transaction
-            session.beginTransaction();
 
-            Spotify data = (Spotify) session.createQuery("FROM Spotify WHERE id = :id")
-                    .setParameter("id", id)
-                    .uniqueResult();
+            session.beginTransaction();
+            data = session.get(Spotify.class, id);
 
             if (data != null) {
                 session.delete(data);
@@ -187,12 +177,11 @@ public class SpotifyDao {
             }
 
         } catch (Exception e) {
+
             if (session.getTransaction() != null) {
                 session.getTransaction().rollback();
             }
-
-            logger.error("Error deleting user", e);
-            e.printStackTrace();
+            logger.error("Error deleting Spotify", e);
         } finally {
             if (session != null && session.isOpen()) {
                 session.close();
@@ -202,16 +191,12 @@ public class SpotifyDao {
         return isSuccess;
     }
 
-    public Spotify getById(Long id){
+    public Spotify getById(Long id) {
         Session session = HibernateUtil.getSession();
         Spotify data = null;
         try {
             // Begin a transaction
             session.beginTransaction();
-
-//            data = (Spotify) session.createQuery("FROM Spotify WHERE id = :id", Spotify.class)
-//                    .setParameter("id", id)
-//                    .uniqueResult();
 
             data = session.get(Spotify.class, id);
 

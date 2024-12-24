@@ -10,7 +10,7 @@ import java.math.BigInteger;
 
 public class SpotifyForm extends ActionForm {
 
-    private BigInteger id;
+    private Long id;
     private String trackName;
     private String artistName;
     private String genre;
@@ -24,11 +24,11 @@ public class SpotifyForm extends ActionForm {
         this.trackName = trackName;
     }
 
-    public BigInteger getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(BigInteger id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

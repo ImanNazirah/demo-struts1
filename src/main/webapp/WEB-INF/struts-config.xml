@@ -29,6 +29,14 @@
             <forward name="success" path="/spotify-pagination.do"/>
             <forward name="failure" path="tiles.spotify.init"/>
         </action>
+        <action path="/spotify-update" type="com.demo.struts1.action.Spotify.SpotifyUpdateAction" name="spotifyForm" scope="request" validate="true" input="tiles.spotify.init">
+            <forward name="success" path="/spotify-pagination.do"/>
+            <forward name="failure" path="tiles.spotify.init"/>
+        </action>
+        <action path="/spotify-delete" type="com.demo.struts1.action.Spotify.SpotifyDeleteAction" name="spotifyForm" scope="request" validate="true" input="tiles.spotify.init">
+            <forward name="success" path="/spotify-pagination.do"/>
+            <forward name="failure" path="tiles.spotify.init"/>
+        </action>
     </action-mappings>
 
 

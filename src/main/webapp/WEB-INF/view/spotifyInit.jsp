@@ -34,6 +34,9 @@
                             </c:otherwise>
                         </c:choose>
                         <form action="<c:url value='${actionUrl}' />" method="post">
+                            <c:if test="${not empty param.id}">
+                                <input name="id" class="form-control" id="inputUserId" type="text" value="${param.id}" style="display:none;" />
+                            </c:if>
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3 mb-md-0">
