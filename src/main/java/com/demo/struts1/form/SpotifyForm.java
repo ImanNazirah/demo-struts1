@@ -59,6 +59,7 @@ public class SpotifyForm extends ActionForm {
     public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {
 
         ActionErrors errors = new ActionErrors();
+        String popularityInput = request.getParameter("popularity");
 
         if (trackName == null || trackName.trim().isEmpty()) {
             errors.add("trackName", new ActionMessage("error.spotify.trackName.required"));
@@ -69,8 +70,17 @@ public class SpotifyForm extends ActionForm {
         if (genre == null || genre.trim().isEmpty()) {
             errors.add("genre", new ActionMessage("error.spotify.genre.required"));
         }
-        if (popularity == null) {
+        if (popularityInput == null  || popularityInput.trim().isEmpty()) {
             errors.add("popularity", new ActionMessage("error.spotify.popularity.required"));
+        } else {
+            try {
+                popularity = Integer.parseInt(popularityInput);
+                if (popularity <= 0) {
+                    errors.add("popularity", new ActionMessage("error.spotify.popularity.invalid"));
+                }
+            } catch (NumberFormatException e) {
+                errors.add("popularity", new ActionMessage("error.spotify.popularity.invalid"));
+            }
         }
 
         return errors;

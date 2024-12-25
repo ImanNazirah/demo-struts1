@@ -42,12 +42,18 @@
                                     <div class="form-floating mb-3 mb-md-0">
                                         <input name="artistName" class="form-control" id="inputArtistName" type="text" placeholder="Enter input" value="${spotifyInitForm.actionType == 'create' ? '' : spotifyInitForm.artistName}"  />
                                         <label for="inputArtistName">Artist name</label>
+                                        <span class="text-danger">
+                                              <html:errors property="artistName"/>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
                                         <input name="trackName" class="form-control" id="inputTrackName" type="text" placeholder="Enter input" value="${spotifyInitForm.actionType == 'create' ? '' : spotifyInitForm.trackName}" />
                                         <label for="inputTrackName">Track name</label>
+                                        <span class="text-danger">
+                                              <html:errors property="trackName"/>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -56,18 +62,24 @@
                                     <div class="form-floating mb-3 mb-md-0">
                                         <input name="genre" class="form-control" id="inputGenre" type="text" placeholder="Enter input" value="${spotifyInitForm.actionType == 'create' ? ''  : spotifyInitForm.genre}"  />
                                         <label for="inputGenre">Genre</label>
+                                        <span class="text-danger">
+                                              <html:errors property="genre"/>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3 mb-md-0">
                                         <input name="popularity" class="form-control" id="inputPopularity" type="text" placeholder="Enter input" value="${spotifyInitForm.actionType == 'create' ? '' : spotifyInitForm.popularity}"  />
                                         <label for="inputPopularity">Popularity</label>
+                                        <span class="text-danger">
+                                              <html:errors property="popularity"/>
+                                        </span>
                                     </div>
                                 </div>
                             </div>
                             <div class="row mb-3 mt-3 justify-content-between">
                                 <div class="col-md-6 text-start">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-dark">
                                       <c:choose>
                                         <c:when test="${spotifyInitForm.actionType == 'create'}">Save</c:when>
                                         <c:when test="${spotifyInitForm.actionType == 'edit'}">Update</c:when>

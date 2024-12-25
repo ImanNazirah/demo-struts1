@@ -4,10 +4,7 @@ package com.demo.struts1.action.Spotify;
 import com.demo.struts1.dao.SpotifyDao;
 import com.demo.struts1.form.SpotifyForm;
 import com.demo.struts1.model.Spotify;
-import org.apache.struts.action.Action;
-import org.apache.struts.action.ActionForm;
-import org.apache.struts.action.ActionForward;
-import org.apache.struts.action.ActionMapping;
+import org.apache.struts.action.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,6 +20,13 @@ public class SpotifyCreateAction extends Action {
                                  HttpServletRequest request, HttpServletResponse response) throws Exception {
 
         SpotifyForm spotifyForm = (SpotifyForm) form;
+
+        ActionErrors errors = spotifyForm.validate(mapping, request);
+        if (!errors.isEmpty()) {
+            saveErrors(request, errors);
+            return mapping.findForward("failure");
+        }
+
         SpotifyDao spotifyDao = new SpotifyDao();
 
         Spotify data = new Spotify();
