@@ -16,6 +16,17 @@ public class SpotifyForm extends ActionForm {
     private String genre;
     private Integer popularity;
 
+    public String getActionType() {
+        return actionType;
+    }
+
+    public void setActionType(String actionType) {
+        this.actionType = actionType;
+    }
+
+    private String actionType;
+
+
     public String getTrackName() {
         return trackName;
     }

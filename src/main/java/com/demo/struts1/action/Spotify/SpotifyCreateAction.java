@@ -19,6 +19,8 @@ public class SpotifyCreateAction extends Action {
     public ActionForward execute(ActionMapping mapping, ActionForm form,
                                  HttpServletRequest request, HttpServletResponse response) throws Exception {
 
+        logger.info("Request form :: {}",form);
+
         SpotifyForm spotifyForm = (SpotifyForm) form;
 
         ActionErrors errors = spotifyForm.validate(mapping, request);

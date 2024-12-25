@@ -2,7 +2,6 @@ package com.demo.struts1.action.Spotify;
 
 import com.demo.struts1.dao.SpotifyDao;
 import com.demo.struts1.form.SpotifyForm;
-import com.demo.struts1.form.SpotifyInitForm;
 import com.demo.struts1.model.Spotify;
 import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
@@ -27,8 +26,9 @@ public class SpotifyInitAction extends Action {
         logger.info("Request query parameter action :: {}",request.getParameter("action"));
         String actionType = request.getParameter("action");
 
-        SpotifyInitForm spotifyForm = (SpotifyInitForm) form;
+        SpotifyForm spotifyForm = (SpotifyForm) form;
         spotifyForm.setActionType(actionType);
+
 
         if((actionType.equals("edit") || actionType.equals("delete")) && request.getParameter("id") != null){
             Spotify data = spotifyDao.getById(Long.parseLong(request.getParameter("id")));
@@ -37,6 +37,9 @@ public class SpotifyInitAction extends Action {
             spotifyForm.setGenre(data.getGenre());
             spotifyForm.setPopularity(data.getPopularity());
             logger.info("Get Existing data :: {}",data);
+
+        } else{
+            spotifyForm.setArtistName(request.getParameter("artistName"));
 
         }
 

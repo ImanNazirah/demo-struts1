@@ -10,9 +10,9 @@
                     <div class="card-header">
                         <h3 class="text-center font-weight-light my-4">
                             <c:choose>
-                                <c:when test="${spotifyInitForm.actionType == 'create'}">Create Data</c:when>
-                                <c:when test="${spotifyInitForm.actionType == 'edit'}">Edit Data</c:when>
-                                <c:when test="${spotifyInitForm.actionType == 'delete'}">Delete Data</c:when>
+                                <c:when test="${spotifyForm.actionType == 'create'}">Create Data</c:when>
+                                <c:when test="${spotifyForm.actionType == 'edit'}">Edit Data</c:when>
+                                <c:when test="${spotifyForm.actionType == 'delete'}">Delete Data</c:when>
                                 <c:otherwise>Create Data</c:otherwise>
                             </c:choose>
                         </h3>
@@ -20,13 +20,13 @@
                     <div class="card-body">
                         <c:set var="actionUrl" value="/spotify-create.do" />
                         <c:choose>
-                            <c:when test="${spotifyInitForm.actionType == 'create'}">
+                            <c:when test="${spotifyForm.actionType == 'create'}">
                                 <c:set var="actionUrl" value="/spotify-create.do" />
                             </c:when>
-                            <c:when test="${spotifyInitForm.actionType == 'edit'}">
+                            <c:when test="${spotifyForm.actionType == 'edit'}">
                                 <c:set var="actionUrl" value="/spotify-update.do" />
                             </c:when>
-                            <c:when test="${spotifyInitForm.actionType == 'delete'}">
+                            <c:when test="${spotifyForm.actionType == 'delete'}">
                                 <c:set var="actionUrl" value="/spotify-delete.do" />
                             </c:when>
                             <c:otherwise>
@@ -40,7 +40,7 @@
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3 mb-md-0">
-                                        <input name="artistName" class="form-control" id="inputArtistName" type="text" placeholder="Enter input" value="${spotifyInitForm.actionType == 'create' ? '' : spotifyInitForm.artistName}"  />
+                                        <input name="artistName" class="form-control" id="inputArtistName" type="text" placeholder="Enter input" value="${spotifyForm.actionType == 'create' ? '' : spotifyForm.artistName}"  />
                                         <label for="inputArtistName">Artist name</label>
                                         <span class="text-danger">
                                               <html:errors property="artistName"/>
@@ -49,7 +49,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input name="trackName" class="form-control" id="inputTrackName" type="text" placeholder="Enter input" value="${spotifyInitForm.actionType == 'create' ? '' : spotifyInitForm.trackName}" />
+                                        <input name="trackName" class="form-control" id="inputTrackName" type="text" placeholder="Enter input" value="${spotifyForm.actionType == 'create' ? '' : spotifyForm.trackName}" />
                                         <label for="inputTrackName">Track name</label>
                                         <span class="text-danger">
                                               <html:errors property="trackName"/>
@@ -60,7 +60,7 @@
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3 mb-md-0">
-                                        <input name="genre" class="form-control" id="inputGenre" type="text" placeholder="Enter input" value="${spotifyInitForm.actionType == 'create' ? ''  : spotifyInitForm.genre}"  />
+                                        <input name="genre" class="form-control" id="inputGenre" type="text" placeholder="Enter input" value="${spotifyForm.actionType == 'create' ? ''  : spotifyForm.genre}"  />
                                         <label for="inputGenre">Genre</label>
                                         <span class="text-danger">
                                               <html:errors property="genre"/>
@@ -69,7 +69,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating mb-3 mb-md-0">
-                                        <input name="popularity" class="form-control" id="inputPopularity" type="text" placeholder="Enter input" value="${spotifyInitForm.actionType == 'create' ? '' : spotifyInitForm.popularity}"  />
+                                        <input name="popularity" class="form-control" id="inputPopularity" type="text" placeholder="Enter input" value="${spotifyForm.actionType == 'create' ? '' : spotifyForm.popularity}"  />
                                         <label for="inputPopularity">Popularity</label>
                                         <span class="text-danger">
                                               <html:errors property="popularity"/>
@@ -81,9 +81,9 @@
                                 <div class="col-md-6 text-start">
                                     <button type="submit" class="btn btn-dark">
                                       <c:choose>
-                                        <c:when test="${spotifyInitForm.actionType == 'create'}">Save</c:when>
-                                        <c:when test="${spotifyInitForm.actionType == 'edit'}">Update</c:when>
-                                        <c:when test="${spotifyInitForm.actionType == 'delete'}">Delete</c:when>
+                                        <c:when test="${spotifyForm.actionType == 'create'}">Save</c:when>
+                                        <c:when test="${spotifyForm.actionType == 'edit'}">Update</c:when>
+                                        <c:when test="${spotifyForm.actionType == 'delete'}">Delete</c:when>
                                         <c:otherwise>Save</c:otherwise>
                                       </c:choose>
                                     </button>
