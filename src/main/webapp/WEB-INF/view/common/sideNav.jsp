@@ -27,7 +27,12 @@
         </div>
         <div class="sb-sidenav-footer">
             <div class="small">Logged in as:</div>
-            Start Bootstrap
+            <%
+                String username = (String) session.getAttribute("loggedInUser");
+            %>
+             <span>
+                 <%= username != null ? username : "Guest" %>
+             </span>
         </div>
     </nav>
 </div>

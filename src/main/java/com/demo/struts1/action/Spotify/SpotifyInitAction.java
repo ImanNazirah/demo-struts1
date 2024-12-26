@@ -1,9 +1,9 @@
 package com.demo.struts1.action.Spotify;
 
+import com.demo.struts1.action.BaseAction;
 import com.demo.struts1.dao.SpotifyDao;
 import com.demo.struts1.form.SpotifyForm;
 import com.demo.struts1.model.Spotify;
-import org.apache.struts.action.Action;
 import org.apache.struts.action.ActionForm;
 import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
@@ -12,14 +12,13 @@ import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.math.BigInteger;
 
-public class SpotifyInitAction extends Action {
+public class SpotifyInitAction extends BaseAction {
 
     private static final Logger logger = LoggerFactory.getLogger(SpotifyInitAction.class);
 
-    public ActionForward execute(ActionMapping mapping, ActionForm form,
-                                 HttpServletRequest request, HttpServletResponse response) {
+    @Override
+    protected ActionForward performAction(ActionMapping mapping, ActionForm form, HttpServletRequest request, HttpServletResponse response) throws Exception {
 
         SpotifyDao spotifyDao = new SpotifyDao();
 
@@ -42,4 +41,5 @@ public class SpotifyInitAction extends Action {
 
         return mapping.findForward("success");
     }
+
 }

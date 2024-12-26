@@ -6,15 +6,13 @@
 
 ## Overview
 
-This is a simple web application built using Struts 1 for the presentation layer and Hibernate for data persistence. The application demonstrates basic CRUD (Create, Read, Update, Delete) operations on a `Spotify` entity.
+This is a simple web application built using Struts 1 for the presentation layer and Hibernate for data persistence. The application demonstrates basic CRUD (Create, Read, Update, Delete) operations.
 
 ## Features
 
-- **Create:** Add a new data to the database.
-- **Read:** View details of all data.
-- **Update:** Modify details of an existing data.
-- **Delete:** Remove a data from the database.
-
+- **CRUD Operations with Struts1:** Implemented full Create, Read, Update, and Delete (CRUD) operations using Struts1 framework to manage data flow and user interaction seamlessly.
+- **Reusable Components with Tiles:** Utilized Apache Tiles for efficient layout management, allowing for reusable templates and consistent page structure across the application.
+- **Authentication:** Implemented user authentication mechanisms to secure the application, ensuring only authorized users can access certain functionalities.
 
 ## Technologies Used
 
@@ -23,15 +21,11 @@ This is a simple web application built using Struts 1 for the presentation layer
 - **MySQL:** Relational database to store information.
 - **Jetty:** Embedded server for running the application.
 
-
 ## Setup Instructions
 
 1. Configure the Database
 
-
-Create a MySQL database named demo and run the following SQL script to create the Spotify table:
-
-https://github.com/ImanNazirah/demo/blob/master/demo.sql
+Create a MySQL database named demo and run the following SQL script from demo.sql.
 
 2. Configure Hibernate
 
@@ -47,7 +41,7 @@ Update the hibernate.cfg.xml file in the src/main/resources folder with your MyS
 3. Build the Project
 
 ```bash
-mvn clean install
+mvn clean install -DskipTests
 ```
 
 4. Run Application
@@ -60,7 +54,12 @@ mvn jetty:run
 
 Open your browser and go to:
 
-http://localhost:8080/demo-struts1/dashboard.do
+http://localhost:8080/demo-struts1/login.do
+
+```txt
+username : demo_test1
+password : mypassword
+```
 
 ## References
 
