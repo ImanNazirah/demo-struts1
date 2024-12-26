@@ -15,15 +15,6 @@ public class SpotifyForm extends ActionForm {
     private String artistName;
     private String genre;
     private Integer popularity;
-
-    public String getActionType() {
-        return actionType;
-    }
-
-    public void setActionType(String actionType) {
-        this.actionType = actionType;
-    }
-
     private String actionType;
 
 
@@ -65,6 +56,14 @@ public class SpotifyForm extends ActionForm {
 
     public void setPopularity(Integer popularity) {
         this.popularity = popularity;
+    }
+
+    public String getActionType() {
+        return actionType;
+    }
+
+    public void setActionType(String actionType) {
+        this.actionType = actionType;
     }
 
     public ActionErrors validate(ActionMapping mapping, HttpServletRequest request) {

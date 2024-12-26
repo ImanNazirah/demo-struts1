@@ -1,7 +1,5 @@
 package com.demo.struts1.model;
 
-import java.math.BigInteger;
-
 public class Spotify {
 
     private Long id;

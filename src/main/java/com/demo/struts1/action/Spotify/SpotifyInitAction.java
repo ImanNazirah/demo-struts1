@@ -38,9 +38,6 @@ public class SpotifyInitAction extends Action {
             spotifyForm.setPopularity(data.getPopularity());
             logger.info("Get Existing data :: {}",data);
 
-        } else{
-            spotifyForm.setArtistName(request.getParameter("artistName"));
-
         }
 
         return mapping.findForward("success");

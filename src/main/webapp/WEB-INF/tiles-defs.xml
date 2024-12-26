@@ -12,6 +12,13 @@
         <put name="script" value="/WEB-INF/view/common/loadScript.jsp"/>
     </definition>
 
+    <definition name="tiles.common.plainLayout" template="/WEB-INF/view/common/plainLayout.jsp">
+        <put name="header" value="/WEB-INF/view/common/header.jsp"/>
+        <put name="body" value="/WEB-INF/view/common/defaultBody.jsp"/>
+        <put name="footer" value="/WEB-INF/view/common/footer.jsp"/>
+        <put name="script" value="/WEB-INF/view/common/loadScript.jsp"/>
+    </definition>
+
     <definition name="tiles.dashboard" extends="tiles.common.layout">
         <put name="body" value="/WEB-INF/view/dashboard.jsp"/>
     </definition>
@@ -26,6 +33,10 @@
 
     <definition name="tiles.spotify.init" extends="tiles.common.layout">
         <put name="body" value="/WEB-INF/view/spotifyInit.jsp"/>
+    </definition>
+
+    <definition name="tiles.logon" extends="tiles.common.plainLayout">
+        <put name="body" value="/WEB-INF/view/login.jsp"/>
     </definition>
 
 </tiles-definitions>

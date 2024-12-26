@@ -9,9 +9,16 @@
     <form-beans>
         <form-bean name="dashboardForm" type="com.demo.struts1.form.DashboardForm" />
         <form-bean name="spotifyForm" type="com.demo.struts1.form.SpotifyForm"/>
+        <form-bean name="loginForm" type="com.demo.struts1.form.LoginForm"/>
+
     </form-beans>
 
     <action-mappings>
+        <action path="/login" type="org.apache.struts.actions.ForwardAction" forward="tiles.logon" />
+        <action path="/postLogin" type="com.demo.struts1.action.User.LoginAction" name="loginForm" scope="request" validate="true" input="/WEB-INF/view/login.jsp">
+            <forward name="success" path="/dashboard.do"/>
+            <forward name="failure" path="tiles.logon"/>
+        </action>
         <action path="/dashboard" type="com.demo.struts1.action.DashboardAction" name="dashboardForm">
             <forward name="success" path="tiles.dashboard" />
         </action>

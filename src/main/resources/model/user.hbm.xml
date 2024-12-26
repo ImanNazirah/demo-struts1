@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping>
+    <class name="com.demo.struts1.model.User" table="user">
+        <id name="id" column="id">
+            <generator class="assigned"/>
+        </id>
+        <property name="email" column="email" />
+        <property name="username" column="username" />
+        <property name="password" column="password" />
+        <property name="created" column="created" />
+        <property name="updated" column="updated" />
+        <property name="fullName" column="full_name" />
+        <property name="isEnable" column="is_enable" />
+    </class>
+
+</hibernate-mapping>

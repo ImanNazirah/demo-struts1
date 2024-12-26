@@ -26,6 +26,7 @@
 
         <!-- Specify annotated classes -->
         <mapping resource="model/spotify.hbm.xml"/>
+        <mapping resource="model/user.hbm.xml"/>
 
     </session-factory>
 </hibernate-configuration>
