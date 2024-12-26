@@ -1,5 +1,7 @@
 <p align="center" style="background-color: #3157a7; padding: 20px;"><a href="https://nodejs.org/en/" target="_blank"><img src="https://struts.apache.org/img/struts-logo.svg" width="100"></a></p>
 
+![WIP Badge](https://img.shields.io/badge/status-WIP-yellow)
+
 # Simple CRUD Application Using Struts 1 and Hibernate
 
 ## Overview

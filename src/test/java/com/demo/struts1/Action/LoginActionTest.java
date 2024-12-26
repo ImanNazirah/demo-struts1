@@ -1,6 +1,5 @@
 package com.demo.struts1.Action;
 
-import org.apache.log4j.Logger;
 import org.junit.jupiter.api.Test;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
