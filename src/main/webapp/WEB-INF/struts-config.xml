@@ -50,6 +50,9 @@
             <forward name="failure" path="tiles.spotify.init"/>
             <forward name="login" path="/login.do" />
         </action>
+        <action path="/logout" type="com.demo.struts1.action.User.LogoutAction">
+            <forward name="login" path="/login.do" />
+        </action>
     </action-mappings>
 
 

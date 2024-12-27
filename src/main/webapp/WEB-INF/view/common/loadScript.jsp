@@ -60,6 +60,39 @@
                 new simpleDatatables.DataTable(datatablesSimple);
         }
 
+        // Get the dropdown button and menu
+        const dropdownToggle = document.querySelector('#navbarDropdown');
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+
+        // Ensure the dropdown toggle and menu exist
+        if (dropdownToggle && dropdownMenu) {
+            // Add click event listener on the dropdown toggle button
+            dropdownToggle.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent default anchor behavior
+
+                // Check if the dropdown is already expanded
+                const isExpanded = dropdownToggle.getAttribute('aria-expanded') === 'true';
+
+                // Toggle the aria-expanded attribute (accessibility)
+                dropdownToggle.setAttribute('aria-expanded', !isExpanded);
+
+                // Toggle the visibility of the dropdown menu
+                if (isExpanded) {
+                    dropdownMenu.classList.remove('show');
+                } else {
+                    dropdownMenu.classList.add('show');
+                }
+            });
+
+            //Close the dropdown when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!dropdownToggle.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                    dropdownMenu.classList.remove('show');
+                    dropdownToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+
     });
 </script>
 

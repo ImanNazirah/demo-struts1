@@ -24,6 +24,7 @@ public class UserDao {
             session.beginTransaction();
             Criteria query = session.createCriteria(User.class);
             query.add(Restrictions.eq("username", username));
+            query.add(Restrictions.eq("isEnable", true));
             data = (User) query.uniqueResult();
 
         } catch (Exception e) {

@@ -1,6 +1,6 @@
 <p align="center" style="background-color: #3157a7; padding: 20px;"><a href="https://weblegacy.github.io/struts1/" target="_blank"><img src="https://struts.apache.org/img/struts-logo.svg" width="100"></a></p>
 
-![WIP Badge](https://img.shields.io/badge/status-WIP-yellow)
+![Status](https://img.shields.io/badge/status-Completed-brightgreen)
 
 # Simple CRUD Application Using Struts 1 and Hibernate
 
