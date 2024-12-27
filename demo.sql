@@ -1,17 +1,3 @@
-CREATE TABLE `user` (
-  `id` varchar(100) NOT NULL,
-  `email` varchar(300) DEFAULT NULL,
-  `username` varchar(30) DEFAULT NULL,
-  `password` varchar(256) DEFAULT NULL,
-  `created` timestamp NULL DEFAULT NULL,
-  `updated` timestamp NULL DEFAULT NULL,
-  `fullName` varchar(250) DEFAULT NULL,
-  `isEnable` tinyint(1) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `User_un_email` (`email`),
-  UNIQUE KEY `User_un_username` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
 create table spotify_song (
 	id BIGINT NOT NULL AUTO_INCREMENT,
 	track_name VARCHAR(45) NOT NULL,
