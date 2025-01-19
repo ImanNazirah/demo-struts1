@@ -1,0 +1,28 @@
+# Assuming you have mysql installed locally
+# manually change configuration on src/main/resources/hibernate.cfg.xml -> db host from localhost to host.docker.internal
+# then you can use docker compose command in order to build and run the project
+# docker-compose down
+# docker-compose up --build
+# TODO : need to make it set dynamically for mysql connection configuration
+
+version: '1.0-SNAPSHOT'
+
+services:
+  app:
+    build: .
+    container_name: struts-app
+    ports:
+      - "8080:8080"
+    environment:
+    # Use host.docker.internal to connect to local MySQL (for macOS/Windows)
+      DB_HOST: host.docker.internal
+      DB_PORT: 3306
+      DB_NAME: demo
+      DB_USER: root
+      DB_PASSWORD: password
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
